@@ -1,0 +1,164 @@
+@use 'variables'
+
+*
+  box-sizing: border-box
+  font-family: Arial, Helvetica, sans-serif
+  color: variables.$dark
+
+body
+  background: #ccc
+  margin: 30px 50px
+  line-height: 1.4
+
+.btn
+  background: variables.$dark
+  color: variables.$light
+  padding: 0.6rem 1.3rem
+  text-decoration: none
+  border: 0
+
+img
+  max-width: 100%
+
+.wrapper
+  display: grid
+  gap: 20px
+
+  .main-nav ul
+    display: grid
+    gap: 20px
+    padding: 0
+    list-style: none
+    grid-template-columns: repeat(4, 1fr)
+
+    a
+      background: variables.$primary
+      display: block
+      text-decoration: none
+      padding: 0.8rem
+      text-align: center
+      color: variables.$dark
+      text-transform: uppercase
+      font-size: 1.1rem
+      box-shadow: variables.$shadow
+
+      &:hover
+        background: variables.$dark
+        color: variables.$light
+
+  .top-container
+    display: grid
+    gap: 20px
+    grid-template-areas: "showcase showcase top-box-a" "showcase showcase top-box-b"
+
+    .showcase
+      grid-area: showcase
+      min-height: 400px
+      background: url(https://image.ibb.co/kYJK8x/showcase.jpg)
+      background-size: cover
+      background-position: center
+      padding: 3rem
+      display: flex
+      flex-direction: column
+      align-items: start
+      justify-content: center
+      box-shadow: variables.$shadow
+
+      h1
+        font-size: 4rem
+        margin-bottom: 0
+        color: variables.$light
+
+      p
+        font-size: 1.3rem
+        margin-top: 0
+        color: variables.$light
+
+    .top-box
+      background: variables.$primary
+      display: grid
+      align-items: center
+      justify-items: center
+      box-shadow: variables.$shadow
+      padding: 1.5rem
+
+      .price
+        font-size: 2.5rem
+
+    .top-box-a
+      grid-area: top-box-a
+
+    .top-box-b
+      grid-area: top-box-b
+
+  .boxes
+    display: grid
+    gap: 20px
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+
+    .box
+      background: variables.$primary
+      text-align: center
+      padding: 1.5rem 2rem
+      box-shadow: variables.$shadow
+
+  .info
+    background: variables.$primary
+    box-shadow: variables.$shadow
+    display: grid
+    gap: 30px
+    grid-template-columns: repeat(2, 1fr)
+    padding: 3rem
+
+  .portfolio
+    display: grid
+    gap: 20px
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+
+    img
+      width: 100%
+      box-shadow: variables.$shadow
+
+  footer
+    margin-top: 2rem
+    background: variables.$dark
+    text-align: center
+    padding: 1rem
+
+    p
+      color: variables.$light
+
+@media (max-width: 700px)
+  .wrapper
+    .top-container
+      grid-template-areas: "showcase showcase" "top-box-a top-box-b"
+
+    .showcase
+      h1
+        font-size: 2.5rem
+
+    .main-nav
+      ul
+        grid-template-columns: 1fr
+
+    .info
+      grid-template-columns: 1fr
+
+      .btn
+        display: block
+        text-align: center
+        margin: auto
+
+@media (max-width: 500px)
+  .wrapper
+    justify-content: center
+    overflow-x: hidden
+    .top-container
+      grid-template-areas: "showcase" "top-box-a" "top-box-b"
+
+      .showcase
+        h1
+          font-size: 3rem
+
+        p
+          font-size: .9rem
